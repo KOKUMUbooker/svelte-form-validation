@@ -6,7 +6,7 @@
 	import Field from "$lib/components/ui/field/field.svelte";
 	import { Input } from "$lib/components/ui/input/index.js";
 	import Label from "$lib/components/ui/label/label.svelte";
-	import { registerBaseSchema, registerSchema } from "$lib/form-configs/sign-up";
+	import { registerBaseSchema, registerSchema } from "$lib/form-configs/form-schema";
 
     let formData = $state({
 		Username: '',

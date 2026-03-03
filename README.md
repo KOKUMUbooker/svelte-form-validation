@@ -49,7 +49,7 @@ This approach:
 
 ## Getting Started
 
-### 1. Create the project
+### 1. To re-create the project
 
 ```bash
 npx sv create svelte-form-validation --add tailwindcss
@@ -61,6 +61,31 @@ cd svelte-form-validation
 ```bash
 npx shadcn-svelte@latest init
 ```
+
+### 3. Add components
+
+```bash
+npx shadcn-svelte@latest add button
+npx shadcn-svelte@latest add input
+npx shadcn-svelte@latest add field
+npx shadcn-svelte@latest add textarea
+npx shadcn-svelte@latest add checkbox
+```
+
+### 4. Install Zod
+
+```bash
+npm install zod
+```
+
+### 5. Run the dev server
+
+````bash
+### 2. Initialize shadcn
+
+```bash
+npx shadcn-svelte@latest init
+````
 
 ### 3. Add components
 
@@ -114,7 +139,7 @@ This allows:
 
 ---
 
-## 🎯 Key Concepts Demonstrated
+## Key Concepts Demonstrated
 
 - Using `safeParse` for controlled validation
 - Validating individual fields using `schema.pick`
@@ -126,38 +151,13 @@ This allows:
 
 ## 📸 Preview
 
-(Add a screenshot or GIF here)
-
----
+## <img src="/readme-assets/screenshot.png">
 
 ## 📚 Related Article
 
 This repository accompanies the article:
 
-**"Smart Client-Side Form Validation in SvelteKit Using Zod"**
-
-(Link your dev.to article here once published)
-
----
-
-## 📄 License
-
-MIT
+**"How to Build UX-Friendly Form Validation in SvelteKit with Zod"**
+<TO BE ADDED>
 
 ---
-
-# 🔥 Optional Enhancement (If You Want It More Polished)
-
-If you'd like it to feel more senior-level and polished, you can add:
-
-- A short animated GIF of validation behavior
-- A "Why not use a form library?" section
-- A short section about performance considerations
-
----
-
-If you'd like, I can now help you:
-
-- Make a shorter README version
-- Or create a more “production-ready portfolio” style README
-- Or craft a matching LinkedIn post to promote the article 🚀
