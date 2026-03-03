@@ -1,42 +1,163 @@
-# sv
+# SvelteKit Client-Side Form Validation with Zod
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A demo project showcasing **smart client-side form validation** in SvelteKit using Zod and shadcn-svelte UI components.
 
-## Creating a project
+This project demonstrates how to build a maintainable, schema-based validation system with real-world UX patterns — without relying on heavy form libraries.
 
-If you're seeing this, you've probably already done this step. Congrats!
+---
 
-```sh
-# create a new project
-npx sv create my-app
+## Features
+
+- Schema-based validation using Zod
+- Field-level validation
+- Cross-field validation (Password confirmation)
+- Blur-first validation strategy
+- Real-time validation after interaction
+- Full validation on submit
+- Custom error messages
+- Numeric coercion with `z.coerce`
+- Boolean validation (Terms & Conditions)
+
+---
+
+## Validation Strategy
+
+Instead of validating only on submit or on every keystroke, this project implements a smarter UX pattern:
+
+1. Validate on blur
+2. Once a field has been touched → validate on input
+3. On submit → mark all fields as touched and validate everything
+4. Handle cross-field validation using `superRefine`
+
+This approach:
+
+- Prevents aggressive error messages while typing
+- Ensures all fields are validated before submission
+- Keeps validation predictable and user-friendly
+
+---
+
+## Tech Stack
+
+- SvelteKit
+- TypeScript
+- Zod
+- TailwindCSS
+- shadcn-svelte
+
+---
+
+## Getting Started
+
+### 1. Create the project
+
+```bash
+npx sv create svelte-form-validation --add tailwindcss
+cd svelte-form-validation
 ```
 
-To recreate this project with the same configuration:
+### 2. Initialize shadcn
 
-```sh
-# recreate this project
-npx sv@0.12.4 create --template minimal --types ts --add tailwindcss="plugins:none" --install npm svelte-form-validation
+```bash
+npx shadcn-svelte@latest init
 ```
 
-## Developing
+### 3. Add components
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+```bash
+npx shadcn-svelte@latest add button
+npx shadcn-svelte@latest add input
+npx shadcn-svelte@latest add field
+npx shadcn-svelte@latest add textarea
+npx shadcn-svelte@latest add checkbox
+```
 
-```sh
+### 4. Install Zod
+
+```bash
+npm install zod
+```
+
+### 5. Run the dev server
+
+```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+---
 
-To create a production version of your app:
+## 📁 Project Structure
 
-```sh
-npm run build
+```
+src/
+ ├─ lib/
+ │   ├─ components/
+ │   ├─ form-configs/
+ │   │    └─ form-schema.ts   # Zod schema definitions
+ ├─ routes/
+ │   └─ +page.svelte      # Form implementation
 ```
 
-You can preview the production build with `npm run preview`.
+---
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## 🧩 Schema Design
+
+The project separates validation logic into:
+
+- `registerBaseSchema` → Independent field validation
+- `registerSchema` → Cross-field validation via `superRefine`
+
+This allows:
+
+- Efficient field-level validation
+- Clean separation of dependent validation logic
+
+---
+
+## 🎯 Key Concepts Demonstrated
+
+- Using `safeParse` for controlled validation
+- Validating individual fields using `schema.pick`
+- Handling dependent fields (Password & Confirm Password)
+- Managing error visibility using a `touched` state object
+- Converting string inputs to numbers using `z.coerce.number()`
+
+---
+
+## 📸 Preview
+
+(Add a screenshot or GIF here)
+
+---
+
+## 📚 Related Article
+
+This repository accompanies the article:
+
+**"Smart Client-Side Form Validation in SvelteKit Using Zod"**
+
+(Link your dev.to article here once published)
+
+---
+
+## 📄 License
+
+MIT
+
+---
+
+# 🔥 Optional Enhancement (If You Want It More Polished)
+
+If you'd like it to feel more senior-level and polished, you can add:
+
+- A short animated GIF of validation behavior
+- A "Why not use a form library?" section
+- A short section about performance considerations
+
+---
+
+If you'd like, I can now help you:
+
+- Make a shorter README version
+- Or create a more “production-ready portfolio” style README
+- Or craft a matching LinkedIn post to promote the article 🚀
