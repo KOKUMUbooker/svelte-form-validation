@@ -74,7 +74,7 @@
 </script>
 
  <div class="w-full min-h-screen py-10 flex justify-center items-center">
-    <div class="w-full max-w-md">
+    <div class="w-full max-w-md px-3">
      <form onsubmit={onSubmit}>
       	<FieldGroup>
 		<div class="flex flex-col items-center gap-1 text-center">
