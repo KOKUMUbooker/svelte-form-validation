@@ -33,7 +33,7 @@
 		}
 	}
 
-    function validatePasswords() {
+    function validatePasswordConfirm() {
 		const result = formSchema.safeParse(formData);
 
 		const issue = result.success
@@ -164,7 +164,7 @@
 				id="passwordConfirm"
 				class={`${errors?.['PasswordConfirm'] ? 'border-destructive' : ''}`}
 				bind:value={formData.PasswordConfirm}
-				onblur={validatePasswords}
+				onblur={validatePasswordConfirm}
 				oninput={() => touched.PasswordConfirm && validateField('PasswordConfirm')}
 				type="password"
 			/>
