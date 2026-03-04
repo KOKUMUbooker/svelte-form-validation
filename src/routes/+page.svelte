@@ -70,7 +70,6 @@
 		// Submit formData to some API
 	}
 
-
 </script>
 
  <div class="w-full min-h-screen py-10 flex justify-center items-center">
@@ -177,7 +176,12 @@
 
 		<Field >
 			<div class="flex items-start gap-3">
-				<Checkbox id="AcceptTerms" checked={formData.AcceptTerms} />
+				<Checkbox id="AcceptTerms" 
+					bind:checked={formData.AcceptTerms} 
+					onblur={onBlur.bind(null, 'AcceptTerms')}
+					onCheckedChange={() => touched.AcceptTerms && validateField('AcceptTerms')}
+					class={`${errors?.['AcceptTerms'] ? 'border-destructive' : ''}`}
+				/>
  				<Label for="AcceptTerms">Accept terms and conditions</Label>
  			</div>
 				<HelperText
