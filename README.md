@@ -132,7 +132,6 @@ This allows:
 
 This repository accompanies the article:
 
-**"How to Build UX-Friendly Form Validation in SvelteKit with Zod"**
-<TO BE ADDED>
+**"How to Build UX-Friendly Form Validation in SvelteKit with Zod"** : https://dev.to/kokumubooker/how-to-build-ux-friendly-form-validation-in-sveltekit-with-zod-130k
 
 ---
