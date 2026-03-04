@@ -80,38 +80,13 @@ npm install zod
 
 ### 5. Run the dev server
 
-````bash
-### 2. Initialize shadcn
-
-```bash
-npx shadcn-svelte@latest init
-````
-
-### 3. Add components
-
-```bash
-npx shadcn-svelte@latest add button
-npx shadcn-svelte@latest add input
-npx shadcn-svelte@latest add field
-npx shadcn-svelte@latest add textarea
-npx shadcn-svelte@latest add checkbox
-```
-
-### 4. Install Zod
-
-```bash
-npm install zod
-```
-
-### 5. Run the dev server
-
 ```bash
 npm run dev
 ```
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
@@ -125,7 +100,7 @@ src/
 
 ---
 
-## 🧩 Schema Design
+## Schema Design
 
 The project separates validation logic into:
 
@@ -149,11 +124,11 @@ This allows:
 
 ---
 
-## 📸 Preview
+## Preview
 
 ## <img src="/readme-assets/screenshot.png">
 
-## 📚 Related Article
+## Related Article
 
 This repository accompanies the article:
 

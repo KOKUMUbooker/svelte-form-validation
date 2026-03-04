@@ -6,7 +6,7 @@
 	import Field from "$lib/components/ui/field/field.svelte";
 	import { Input } from "$lib/components/ui/input/index.js";
 	import Label from "$lib/components/ui/label/label.svelte";
-	import { registerBaseSchema, registerSchema } from "$lib/form-configs/form-schema";
+	import { formBaseSchema, formSchema } from "$lib/form-configs/form-schema";
 
     let formData = $state({
 		Username: '',
@@ -23,7 +23,7 @@
     type FieldKeys = keyof typeof formData
 
     function validateField(field: FieldKeys) {
-		const partial = registerBaseSchema.pick({ [field]: true } as object);
+		const partial = formBaseSchema.pick({ [field]: true } as object);
 		const result = partial.safeParse({ [field]: formData[field] });
 
 		if (!result.success) {
@@ -34,7 +34,7 @@
 	}
 
     function validatePasswords() {
-		const result = registerSchema.safeParse(formData);
+		const result = formSchema.safeParse(formData);
 
 		const issue = result.success
 			? null
@@ -47,7 +47,7 @@
 		}
 	}
 
-	function onBlur(field: keyof typeof formData) {
+	function onBlur(field: FieldKeys) {
 		touched[field] = true;
 		validateField(field);
 	}
@@ -58,7 +58,7 @@
 		// mark everything touched
 		Object.keys(formData).forEach((key) => (touched[key] = true));
 
-		const result = registerSchema.safeParse(formData);
+		const result = formSchema.safeParse(formData);
 
 		if (!result.success) {
 			errors = Object.fromEntries(
@@ -95,7 +95,7 @@
 				oninput={() => touched.Username && validateField('Username')}
 				placeholder="John Doe"
 			/>
-			<HelperText variant="error" message={errors?.['FullName'] || ''} show={!!errors?.['FullName']}
+			<HelperText variant="error" message={errors?.['Username'] || ''} show={!!errors?.['Username']}
 			></HelperText>
 		</Field>
 		

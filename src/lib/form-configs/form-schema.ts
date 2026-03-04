@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const registerBaseSchema = z.object({
+export const formBaseSchema = z.object({
     Username: z
         .string()
         .min(3, 'Username must be at least 3 characters')
@@ -43,7 +43,7 @@ export const registerBaseSchema = z.object({
         }),
 });
 
-export const registerSchema = registerBaseSchema.superRefine(
+export const formSchema = formBaseSchema.superRefine(
     ({ Password, PasswordConfirm }, ctx) => {
         if (Password !== PasswordConfirm) {
             ctx.addIssue({
